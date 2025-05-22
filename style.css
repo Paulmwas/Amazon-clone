@@ -7,6 +7,7 @@
 }
 body{
     color: #dadada;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 a{
     text-decoration: none;
@@ -101,6 +102,9 @@ nav{
     text-align: center;
     gap: 5px;
     font-weight: 500;
+}
+.header-slider{ /* Ensure this is relative for positioning its absolute children (nav arrows) */
+    position: relative;
 }
 .header-slider ul{
     display: flex;
@@ -229,4 +233,129 @@ footer{
     background-color: #131921;
     padding: 20px 30px;
 
+}
+
+/* For medium screens */
+@media (max-width: 768px) {
+    .nav-search {
+        flex: 0.6; /* Allow search to shrink but not too much */
+    }
+    .nav-country, .nav-language, .nav-text, .nav-cart {
+        margin-left: 10px;
+    }
+    .nav-text p{
+        font-size: 9px;
+    }
+    .nav-text h1{
+        font-size: 13px;
+    }
+    .nav-bottom{
+        font-size: 14px;
+        gap: 10px;
+        padding: 8px 15px;
+    }
+    .box-col {
+        max-width: 48%; /* Allows 2 columns */
+        padding: 25px 15px;
+    }
+    .box-row{
+        margin: 20px 15px;
+    }
+    .header-box{
+        margin-top: -18vw; /* Adjusted from -25vw for better stability */
+    }
+    .product-slider, .product-slider-with-price {
+        margin: 0 15px;
+        padding: 15px;
+    }
+}
+
+/* For small screens */
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column; /* Stack nav items */
+        align-items: flex-start;
+        padding: 10px 10px;
+    }
+    .nav-country, .nav-language, .nav-text, .nav-cart {
+        margin-left: 0;
+        margin-top: 10px; /* Add some space between stacked items */
+    }
+    .nav-search {
+        width: 100%; /* Make search take full width */
+        margin-left: 0;
+        margin-top: 10px;
+        flex: 1; /* Ensure it takes available space */
+    }
+    .nav_search_category{
+        padding: 8px 10px; /* Smaller padding */
+    }
+    .nav-search-input{
+        padding-left: 10px; /* Smaller padding */
+    }
+    .nav-search-icon{
+        padding: 10px; /* Smaller padding */
+    }
+    .nav-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+    .nav-bottom p, .nav-bottom div {
+        margin-top: 5px;
+    }
+    .header-slider a { /* Adjust slider controls for smaller screens */
+        padding: 3vh 2vw;
+        font-size: 14px;
+        top: 50%; /* Vertically center relative to .header-slider */
+        transform: translateY(-50%);
+    }
+    .header-img{
+        max-height: 250px; /* Limit header image height */
+    }
+    .header-box{ /* Remove negative margin or adjust it */
+        margin-top: 5vw;
+    }
+    .box-col {
+        max-width: 100%; /* Allows 1 column */
+        padding: 20px 10px;
+    }
+    .box-row{
+        margin: 15px 10px;
+        row-gap: 15px;
+    }
+    .product-slider, .product-slider-with-price {
+        margin: 0 10px;
+        padding: 10px;
+    }
+    .product-slider .products img, .product-slider-with-price .products img {
+        max-width: 150px; /* Smaller product images */
+    }
+    .product-card{
+        min-width: 180px; /* Adjust product card width */
+    }
+    .product-card img{
+        width: 100px; /* Adjust image size in card */
+        margin: 0 auto; /* Center image */
+    }
+    .product-offer p{
+        font-size: 12px;
+    }
+    .product-offer span{
+        font-size: 11px;
+    }
+    .product-card h4{
+        font-size: 14px;
+    }
+    footer {
+        flex-direction: column; /* Stack footer items */
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+    }
+    footer img { /* Assuming there might be an img in footer, e.g. logo */
+        margin-bottom: 10px;
+    }
 }
